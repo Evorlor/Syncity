@@ -1,11 +1,9 @@
-﻿Shader "Custom/Standard" {
+﻿Shader "Vision/EM" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
-		_Thermal("Thermal", Range(0.001,1.0)) = 0.0
-		_EM("EM", Range(0.01,1.0)) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Vision" }
@@ -26,6 +24,7 @@
 
 		half _Glossiness;
 		half _Metallic;
+		half _EM;
 		fixed4 _Color;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -37,7 +36,13 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+			float intensity = 100.0;
+			float red = 1.0;
+			float green = _EM * intensity;
+			float blue = 1.0;
+			float alpha = 1.0;
+			fixed4 color = fixed4(red, green, blue, alpha);
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * color;
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
