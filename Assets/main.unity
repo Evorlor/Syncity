@@ -4589,8 +4589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b2200d1e7ae904cafcf4598206874c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalVision: {fileID: 11400000, guid: a253bae3c367db248ae41bfbe66b52bb, type: 2}
-  nightVision: {fileID: 11400000, guid: 1e193c78d5122f947b4244f469349278, type: 2}
+  normalVisionProfile: {fileID: 11400000, guid: a253bae3c367db248ae41bfbe66b52bb,
+    type: 2}
+  thermalVisionProfile: {fileID: 11400000, guid: 9624c9020c9992d4d80916b83d8c0f0e,
+    type: 2}
+  nightVisionProfile: {fileID: 11400000, guid: 1e193c78d5122f947b4244f469349278, type: 2}
+  thermalShader: {fileID: 4800000, guid: c03f8664df333df48abe5b00bc6f531f, type: 3}
 --- !u!1001 &725659040
 Prefab:
   m_ObjectHideFlags: 0

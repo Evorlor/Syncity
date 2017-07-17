@@ -4,21 +4,34 @@ using UnityEngine.PostProcessing;
 
 namespace Syncity
 {
+	[RequireComponent(typeof(Camera))]
 	[RequireComponent(typeof(PostProcessingBehaviour))]
 	public class CameraController : MonoBehaviour
 	{
-		[Tooltip("Post-processing for normal vision")]
-		[SerializeField]
-		private PostProcessingProfile normalVision;
+		private const string DefaultShaderTag = "RenderType";
 
-		[Tooltip("Post-processing for night vision")]
+		[Tooltip("Post-processing profile for normal vision")]
 		[SerializeField]
-		private PostProcessingProfile nightVision;
+		private PostProcessingProfile normalVisionProfile;
 
+		[Tooltip("Post-processing profile for thermal vision")]
+		[SerializeField]
+		private PostProcessingProfile thermalVisionProfile;
+
+		[Tooltip("Post-processing profile for night vision")]
+		[SerializeField]
+		private PostProcessingProfile nightVisionProfile;
+
+		[Tooltip("Shader to overwrite normal shaders with for thermal vision effect")]
+		[SerializeField]
+		private Shader thermalShader;
+
+		private Camera postProcessingCamera;
 		private PostProcessingBehaviour postProcessingBehaviour;
 
 		private void Awake()
 		{
+			postProcessingCamera = GetComponent<Camera>();
 			postProcessingBehaviour = GetComponent<PostProcessingBehaviour>();
 		}
 
@@ -51,7 +64,8 @@ namespace Syncity
 		/// </summary>
 		private void EnableNormalVision()
 		{
-			postProcessingBehaviour.profile = normalVision;
+			postProcessingBehaviour.profile = normalVisionProfile;
+			postProcessingCamera.ResetReplacementShader();
 		}
 
 		/// <summary>
@@ -59,7 +73,8 @@ namespace Syncity
 		/// </summary>
 		private void EnableThermalVision()
 		{
-			throw new NotImplementedException("Thermal Vision");
+			postProcessingBehaviour.profile = thermalVisionProfile;
+			postProcessingCamera.SetReplacementShader(thermalShader, DefaultShaderTag);
 		}
 
 		/// <summary>
@@ -67,7 +82,8 @@ namespace Syncity
 		/// </summary>
 		private void EnableNightVision()
 		{
-			postProcessingBehaviour.profile = nightVision;
+			postProcessingBehaviour.profile = nightVisionProfile;
+			postProcessingCamera.ResetReplacementShader();
 		}
 
 		/// <summary>

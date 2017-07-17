@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Guard_Body_02
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: d8d82ada6a70e3a4da79fba47819f799, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -71,6 +71,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AnimatedRandomRowOffset: 1
+    - _Blue: 0.5
     - _BumpScale: 1
     - _CullMode: 2
     - _Cutoff: 0.5
@@ -80,6 +81,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Green: 0.5
     - _HasAnimatedAlbedo: 0
     - _HasAnimatedEmission: 0
     - _LightProbeScale: 1
@@ -92,10 +94,12 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 0.813
     - _Parallax: 0.02
+    - _Red: 0.5
     - _ReflectionProbeBoost: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Thermal: 0.35
     - _Translucency: 0
     - _TransmissionThicknessScale: 1
     - _UVDetailMask: 0
