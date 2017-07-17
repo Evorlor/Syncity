@@ -1,10 +1,27 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 namespace Syncity
 {
+	[RequireComponent(typeof(PostProcessingBehaviour))]
 	public class CameraController : MonoBehaviour
 	{
+		[Tooltip("Post-processing for normal vision")]
+		[SerializeField]
+		private PostProcessingProfile normalVision;
+
+		[Tooltip("Post-processing for night vision")]
+		[SerializeField]
+		private PostProcessingProfile nightVision;
+
+		private PostProcessingBehaviour postProcessingBehaviour;
+
+		private void Awake()
+		{
+			postProcessingBehaviour = GetComponent<PostProcessingBehaviour>();
+		}
+
 		private void Update()
 		{
 			if (Input.GetButtonDown(InputNames.NormalVision))
@@ -34,7 +51,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableNormalVision()
 		{
-			throw new NotImplementedException("Normal Vision");
+			postProcessingBehaviour.profile = normalVision;
 		}
 
 		/// <summary>
@@ -50,7 +67,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableNightVision()
 		{
-			throw new NotImplementedException("Night Vision");
+			postProcessingBehaviour.profile = nightVision;
 		}
 
 		/// <summary>
