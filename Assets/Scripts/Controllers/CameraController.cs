@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.PostProcessing;
 
 namespace Syncity
@@ -34,6 +33,10 @@ namespace Syncity
 		[SerializeField]
 		private Shader emShader;
 
+		[Tooltip("Container for the thumbnail cameras")]
+		[SerializeField]
+		private Transform thumbnailCameraContainer;
+
 		private Camera postProcessingCamera;
 		private PostProcessingBehaviour postProcessingBehaviour;
 
@@ -41,6 +44,11 @@ namespace Syncity
 		{
 			postProcessingCamera = GetComponent<Camera>();
 			postProcessingBehaviour = GetComponent<PostProcessingBehaviour>();
+		}
+
+		private void Start()
+		{
+			EnableNormalVision();
 		}
 
 		private void Update()
@@ -72,6 +80,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableNormalVision()
 		{
+			thumbnailCameraContainer.gameObject.SetActive(false);
 			postProcessingBehaviour.profile = normalVisionProfile;
 			postProcessingCamera.ResetReplacementShader();
 		}
@@ -81,6 +90,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableThermalVision()
 		{
+			thumbnailCameraContainer.gameObject.SetActive(false);
 			postProcessingBehaviour.profile = thermalVisionProfile;
 			postProcessingCamera.SetReplacementShader(thermalShader, DefaultShaderTag);
 		}
@@ -90,6 +100,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableNightVision()
 		{
+			thumbnailCameraContainer.gameObject.SetActive(false);
 			postProcessingBehaviour.profile = nightVisionProfile;
 			postProcessingCamera.ResetReplacementShader();
 		}
@@ -99,6 +110,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableEMVision()
 		{
+			thumbnailCameraContainer.gameObject.SetActive(false);
 			postProcessingBehaviour.profile = emVisionProfile;
 			postProcessingCamera.SetReplacementShader(emShader, DefaultShaderTag);
 		}
@@ -108,7 +120,9 @@ namespace Syncity
 		/// </summary>
 		private void EnableSpecialVision()
 		{
-			throw new NotImplementedException("Special Vision");
+			postProcessingBehaviour.profile = normalVisionProfile;
+			postProcessingCamera.ResetReplacementShader();
+			thumbnailCameraContainer.gameObject.SetActive(true);
 		}
 	}
 }
