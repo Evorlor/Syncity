@@ -22,9 +22,17 @@ namespace Syncity
 		[SerializeField]
 		private PostProcessingProfile nightVisionProfile;
 
+		[Tooltip("Post-processing profile for EM vision")]
+		[SerializeField]
+		private PostProcessingProfile emVisionProfile;
+
 		[Tooltip("Shader to overwrite normal shaders with for thermal vision effect")]
 		[SerializeField]
 		private Shader thermalShader;
+
+		[Tooltip("Shader to overwrite normal shaders for EM vision effect")]
+		[SerializeField]
+		private Shader emShader;
 
 		private Camera postProcessingCamera;
 		private PostProcessingBehaviour postProcessingBehaviour;
@@ -91,7 +99,8 @@ namespace Syncity
 		/// </summary>
 		private void EnableEMVision()
 		{
-			throw new NotImplementedException("EM Vision");
+			postProcessingBehaviour.profile = emVisionProfile;
+			postProcessingCamera.SetReplacementShader(emShader, DefaultShaderTag);
 		}
 
 		/// <summary>
