@@ -4590,6 +4590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalVision: {fileID: 11400000, guid: a253bae3c367db248ae41bfbe66b52bb, type: 2}
+  thermalVision: {fileID: 11400000, guid: 9624c9020c9992d4d80916b83d8c0f0e, type: 2}
   nightVision: {fileID: 11400000, guid: 1e193c78d5122f947b4244f469349278, type: 2}
 --- !u!1001 &725659040
 Prefab:

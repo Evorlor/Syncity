@@ -7,14 +7,18 @@ namespace Syncity
 	[RequireComponent(typeof(PostProcessingBehaviour))]
 	public class CameraController : MonoBehaviour
 	{
-		[Tooltip("Post-processing for normal vision")]
+		[Tooltip("Post-processing profile for normal vision")]
 		[SerializeField]
 		private PostProcessingProfile normalVision;
 
-		[Tooltip("Post-processing for night vision")]
+		[Tooltip("Post-processing profile for thermal vision")]
+		[SerializeField]
+		private PostProcessingProfile thermalVision;
+
+		[Tooltip("Post-processing profile for night vision")]
 		[SerializeField]
 		private PostProcessingProfile nightVision;
-
+		
 		private PostProcessingBehaviour postProcessingBehaviour;
 
 		private void Awake()
@@ -59,7 +63,7 @@ namespace Syncity
 		/// </summary>
 		private void EnableThermalVision()
 		{
-			throw new NotImplementedException("Thermal Vision");
+			postProcessingBehaviour.profile = thermalVision;
 		}
 
 		/// <summary>
