@@ -32,7 +32,7 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			float intensity = _Thermal * 255.0;
+			float intensity = _Thermal * 1000.0;
 			float red = _Thermal * intensity;
 			float green = _Thermal * intensity;
 			float blue = intensity;
