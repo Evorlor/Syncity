@@ -4589,6 +4589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b2200d1e7ae904cafcf4598206874c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalVision: {fileID: 11400000, guid: a253bae3c367db248ae41bfbe66b52bb, type: 2}
+  nightVision: {fileID: 11400000, guid: 1e193c78d5122f947b4244f469349278, type: 2}
 --- !u!1001 &725659040
 Prefab:
   m_ObjectHideFlags: 0
@@ -5002,6 +5004,12 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114562134747650484, guid: 6cfc72e99f256cb489c84398535f272d,
+        type: 2}
+      propertyPath: profile
+      value: 
+      objectReference: {fileID: 11400000, guid: a253bae3c367db248ae41bfbe66b52bb,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 95000013181227308, guid: 6cfc72e99f256cb489c84398535f272d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6cfc72e99f256cb489c84398535f272d, type: 2}
