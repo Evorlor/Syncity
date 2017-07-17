@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: Night Vision
+  m_Name: Thermal Vision
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 4
+      intensity: 1.25
       radius: 0.42
       sampleCount: 10
       downsampling: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
       ambientOnly: 0
       highPrecision: 0
   screenSpaceReflection:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       reflection:
         blendType: 0
@@ -116,16 +116,16 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: 0.05
-        temperature: 0
-        tint: 100
+        temperature: 100
+        tint: 0
         hueShift: 0
         saturation: 1
-        contrast: 1.5
+        contrast: 1
       channelMixer:
-        red: {x: 0, y: 0, z: 0}
+        red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
-        blue: {x: 0, y: 0, z: 0}
-        currentEditingChannel: 1
+        blue: {x: 0, y: 0, z: 1}
+        currentEditingChannel: 0
       colorWheels:
         mode: 1
         log:
@@ -148,8 +148,8 @@ MonoBehaviour:
               outSlope: 0.6264385
               tangentMode: 0
             - serializedVersion: 2
-              time: 0.46865672
-              value: 0.6202532
+              time: 0.90149254
+              value: 0.10126585
               inSlope: 1.2938845
               outSlope: 1.2938845
               tangentMode: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0
           m_Range: 1
@@ -205,7 +205,7 @@ MonoBehaviour:
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0
           m_Range: 1
@@ -227,7 +227,7 @@ MonoBehaviour:
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0
           m_Range: 1
@@ -244,7 +244,19 @@ MonoBehaviour:
         hueVSsat:
           curve:
             serializedVersion: 2
-            m_Curve: []
+            m_Curve:
+            - serializedVersion: 2
+              time: 0
+              value: 0.25316453
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+            - serializedVersion: 2
+              time: 1
+              value: 0
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
             m_RotationOrder: 0
@@ -273,9 +285,9 @@ MonoBehaviour:
           m_Range: 1
         e_CurrentEditingCurve: 2
         e_CurveY: 1
-        e_CurveR: 0
-        e_CurveG: 0
-        e_CurveB: 0
+        e_CurveR: 1
+        e_CurveG: 1
+        e_CurveB: 1
   userLut:
     m_Enabled: 0
     m_Settings:
@@ -287,7 +299,7 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0.125
   grain:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       colored: 1
       intensity: 0.5
